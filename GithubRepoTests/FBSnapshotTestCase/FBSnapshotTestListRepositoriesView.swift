@@ -19,7 +19,15 @@ class FBSnapshotTestListRepositoriesView: FBSnapshotTestCase {
     func testVerifyView() {
         let listRepositoriesViewController = ListRepositoriesViewController()
 
-        
+        let awesome = Repository(id: 2, title: "awesome-ios",
+        owner: Owner(imageUrl: "https://avatars2.githubusercontent.com/u/484656?v=4"),
+        stars: 34700)
+        listRepositoriesViewController.presenter.addRepository(new: awesome)
+
+        let alamofire = Repository(id: 1, title: "Alamofire",
+                                    owner: Owner(imageUrl: "https://avatars3.githubusercontent.com/u/7774181?v=4"),
+                                    stars: 33356)
+        listRepositoriesViewController.presenter.addRepository(new: alamofire)
 
         FBSnapshotVerifyView(listRepositoriesViewController.view)
     }

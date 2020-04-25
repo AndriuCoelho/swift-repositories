@@ -12,7 +12,7 @@ import Alamofire
 struct RepositoryNetworkManager {
 
     @discardableResult
-    private static func performRequest(route: RepositoryEndpoint, completion: @escaping(AFDataResponse<Any>?) -> Void) -> DataRequest {
+    static func performRequest(route: RepositoryEndpoint, completion: @escaping(AFDataResponse<Any>?) -> Void) -> DataRequest {
         return AF.request(route).validate().responseJSON(completionHandler: { response in
             completion(response)
         })

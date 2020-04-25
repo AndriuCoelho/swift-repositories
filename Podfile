@@ -11,8 +11,8 @@ target 'GithubRepo' do
   pod 'FBSnapshotTestCase'
 
   target 'GithubRepoTests' do
-    inherit! :search_paths
     pod 'OHHTTPStubs/Swift'
+    inherit! :search_paths
   end
 
 end
