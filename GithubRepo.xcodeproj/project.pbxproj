@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		032399302450B3E900017447 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323992F2450B3E900017447 /* Repository.swift */; };
-		033C2F3524565F39008FEA7A /* ListRepositoriesViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C2F3424565F39008FEA7A /* ListRepositoriesViewTest.swift */; };
+		033C2F3524565F39008FEA7A /* ListRepositoriesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C2F3424565F39008FEA7A /* ListRepositoriesViewTests.swift */; };
+		033C2F3924571207008FEA7A /* ListRepositoriesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033C2F3824571207008FEA7A /* ListRepositoriesPresenterTests.swift */; };
 		034DAEDE24511927009246C9 /* loading-animation-circle.json in Resources */ = {isa = PBXBuildFile; fileRef = 034DAEDD24511927009246C9 /* loading-animation-circle.json */; };
 		034DAEE0245119BF009246C9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DAEDF245119BF009246C9 /* LoadingView.swift */; };
 		034DAEE224511AEA009246C9 /* LoadingViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DAEE124511AEA009246C9 /* LoadingViewManager.swift */; };
@@ -44,7 +45,8 @@
 
 /* Begin PBXFileReference section */
 		0323992F2450B3E900017447 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		033C2F3424565F39008FEA7A /* ListRepositoriesViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListRepositoriesViewTest.swift; path = GithubRepoTests/Networking/ListRepositoriesViewTest.swift; sourceTree = SOURCE_ROOT; };
+		033C2F3424565F39008FEA7A /* ListRepositoriesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListRepositoriesViewTests.swift; path = GithubRepoTests/Networking/ListRepositoriesViewTests.swift; sourceTree = SOURCE_ROOT; };
+		033C2F3824571207008FEA7A /* ListRepositoriesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListRepositoriesPresenterTests.swift; path = GithubRepoTests/Networking/ListRepositoriesPresenterTests.swift; sourceTree = SOURCE_ROOT; };
 		034DAEDD24511927009246C9 /* loading-animation-circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-animation-circle.json"; sourceTree = "<group>"; };
 		034DAEDF245119BF009246C9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		034DAEE124511AEA009246C9 /* LoadingViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewManager.swift; sourceTree = "<group>"; };
@@ -253,7 +255,7 @@
 		03D1B8912454A37100CE126E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				033C2F3424565F39008FEA7A /* ListRepositoriesViewTest.swift */,
+				033C2F3424565F39008FEA7A /* ListRepositoriesViewTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +263,7 @@
 		03D1B8922454A42100CE126E /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				033C2F3824571207008FEA7A /* ListRepositoriesPresenterTests.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -499,10 +502,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				033C2F3524565F39008FEA7A /* ListRepositoriesViewTest.swift in Sources */,
+				033C2F3524565F39008FEA7A /* ListRepositoriesViewTests.swift in Sources */,
 				03D1B8882454853300CE126E /* FBSnapshotTestListRepositoriesView.swift in Sources */,
 				03D1B88B24548F3600CE126E /* RepositoryDataBuilder.swift in Sources */,
 				03D1B8952454A5AD00CE126E /* RepositoryNetworkManagerTests.swift in Sources */,
+				033C2F3924571207008FEA7A /* ListRepositoriesPresenterTests.swift in Sources */,
 				03D1B88E245499EC00CE126E /* RepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@
 import XCTest
 @testable import GithubRepo
 
-class ListRepositoriesViewTest: XCTestCase {
+class ListRepositoriesViewTests: XCTestCase {
 
     var repositoryView: ListRepositoriesView!
 

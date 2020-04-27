@@ -11,7 +11,7 @@ import XCTest
 
 class RepositoryTests: XCTestCase {
 
-    // MARK: - Attributes
+    // MARK: - Setup
 
     override func setUp() {
         super.setUp()
