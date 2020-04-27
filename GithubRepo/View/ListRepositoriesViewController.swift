@@ -35,6 +35,7 @@ final class ListRepositoriesViewController: UIViewController {
     // MARK: - Methods
 
     func getRepositories() {
+        presenter.toggleLoading(value: true)
         LoadingViewManager(self).showLoading()
         presenter.search(page: presenter.page)
     }
@@ -52,9 +53,11 @@ extension ListRepositoriesViewController: ListRepositoriesResultOutput {
         case .searchSuccess:
             presenter.incrementPage()
             currentView.reloadData()
-            LoadingViewManager(self).hideLoading()
         case .searchError:
-            LoadingViewManager(self).hideLoading()
+            presenter.toggleLoading(value: false)
+        case .completed:
+            presenter.toggleLoading(value: true)
         }
+        LoadingViewManager(self).hideLoading()
     }
 }

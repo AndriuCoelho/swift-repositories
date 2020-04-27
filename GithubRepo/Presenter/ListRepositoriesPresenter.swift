@@ -9,7 +9,7 @@
 import Foundation
 
 enum ListRepositoriesViewState {
-    case searchError, searchSuccess
+    case searchError, searchSuccess, completed
 }
 
 protocol ListRepositoriesResultOutput: class {
@@ -20,7 +20,8 @@ class ListRepositoriesPresenter {
 
     // MARK: - Attributes
     
-    private(set) var page = 0
+    private(set) var page = 1
+    private(set) var isLoading = false
     private(set) var repositories: [Repository] = []
     weak var outputDelegate: ListRepositoriesResultOutput?
 
@@ -30,18 +31,27 @@ class ListRepositoriesPresenter {
         page += 1
     }
 
-    func addRepository(new: Repository) {
-        repositories.append(new)
+    func toggleLoading(value: Bool) {
+        isLoading = value
     }
 
-    func search(page: Int, quantityResults: Int = 50) {
+    func addRepository(new: Repository) {
+        repositories.append(new)
+        repositories.sort(by: { $0.stars > $1.stars })
+    }
+
+    func search(page: Int, quantityResults: Int = 100) {
         RepositoryNetworkManager.getRepositories(page, quantityResults) { (repositoryList, error) in
+            repositoryList.forEach({
+                if !self.repositories.contains($0) {
+                    self.addRepository(new: $0)
+                }
+            })
+            if repositoryList.count == 0 {
+                self.outputDelegate?.updateViewState(state: .completed)
+                return
+            }
             DispatchQueue.main.async {
-                repositoryList.forEach({
-                    if !self.repositories.contains($0) {
-                        self.addRepository(new: $0)
-                    }
-                })
                 self.outputDelegate?.updateViewState(state: error == nil ? .searchSuccess : .searchError)
             }
         }

@@ -20,7 +20,7 @@ class ListRepositoriesView: UIView {
     private(set) var title = "Top Swift Repositories"
     private(set) var presenter: ListRepositoriesPresenter
 
-    lazy private var repositoryTableView: UITableView = {
+    lazy private(set) var repositoryTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.register(ListRepositoriesTableViewCell.self, forCellReuseIdentifier: ListRepositoriesTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,10 +61,11 @@ class ListRepositoriesView: UIView {
     }
 
     private func requestMore(_ indexPath: IndexPath) -> Bool {
-        return indexPath.row == presenter.repositories.count - 1 ? true : false
+        return (indexPath.row == presenter.repositories.count - 1 ? true : false) && !presenter.isLoading
     }
 
     func reloadData() {
+        presenter.toggleLoading(value: false)
         repositoryTableView.reloadData()
     }
 
